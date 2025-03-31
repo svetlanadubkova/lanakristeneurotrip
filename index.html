@@ -14,22 +14,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            background-color: #ffffff; /* Pure White Background */
-            color: #1a1a1a; /* Near-Black Text */
+            background-color: #ffffff; color: #1a1a1a;
             font-family: 'Roboto', sans-serif; font-weight: 400;
             line-height: 1.6; overflow-x: hidden; font-size: 16px;
         }
 
-        /* --- Navigation (Light Mode - No Grey) --- */
+        /* --- Navigation --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px);
             padding: 0.8em 0; z-index: 1000; text-align: center;
-            border-bottom: 1px solid rgba(255, 182, 193, 0.4); /* Light Pink Border */
+            border-bottom: 1px solid rgba(255, 182, 193, 0.4);
         }
         nav ul { list-style: none; display: flex; justify-content: center; gap: 2em; flex-wrap: wrap; }
         nav a {
-            color: #555; /* Softer Dark Text */ text-decoration: none; font-weight: 400; font-size: 1rem;
+            color: #555; text-decoration: none; font-weight: 400; font-size: 1rem;
             padding: 0.5em 0; position: relative; transition: color 0.3s ease;
             text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem;
         }
@@ -42,8 +41,8 @@
         .left-column {
             flex: 0 0 380px; position: sticky; top: 80px;
             height: calc(100vh - 90px); overflow-y: auto;
-            padding-right: 1.5em; border-right: 1px solid rgba(255, 182, 193, 0.4); /* Light Pink Border */
-            scrollbar-width: thin; scrollbar-color: #FFB6C1 #ffffff; /* Pink Scrollbar on White Track */
+            padding-right: 1.5em; border-right: 1px solid rgba(255, 182, 193, 0.4);
+            scrollbar-width: thin; scrollbar-color: #FFB6C1 #ffffff;
         }
          .left-column::-webkit-scrollbar { width: 8px; }
          .left-column::-webkit-scrollbar-track { background: #ffffff; }
@@ -62,39 +61,25 @@
         .left-column .content-wrapper, .right-column .content-wrapper { max-width: 100%; padding: 0; }
          #daily-summary-anchor .content-wrapper h3 { text-align: left; }
 
-        /* --- Typography & Accents (Pink/Red on White) --- */
+        /* --- Typography & Accents --- */
         h2, h3, h4, h5 { text-transform: uppercase; letter-spacing: 0.07em; }
         h2 { font-weight: 300; font-size: 2rem; color: #1a1a1a; opacity: 0; min-height: auto;}
-        h3 { font-weight: 700; font-size: 1.3rem; color: #FFB6C1; margin-top: 2em; margin-bottom: 1em; text-align: left;} /* Reduce top margin slightly */
+        h3 { font-weight: 700; font-size: 1.3rem; color: #FFB6C1; margin-top: 2em; margin-bottom: 1em; text-align: left;}
         h4, h5 { font-weight: 700; font-size: 1rem; color: #DC143C; margin-bottom: 0.8em; margin-top: 1.5em; padding-top: 1em; border-top: 1px solid rgba(255, 182, 193, 0.3); text-align: left;}
         .tab-content h4 { font-size: 1.4rem; border: none; margin-top: 0; color:#1a1a1a; text-align: center; font-weight: 300; }
         .day-entry:first-child h4, .day-entry:first-child h5 { border-top: none; margin-top: 0; padding-top: 0; }
-        p, li { font-size: 0.95rem; color: #555; /* Darker secondary text */ margin-bottom: 0.8em; max-width: 100%; text-align: left; }
+        p, li { font-size: 0.95rem; color: #555; margin-bottom: 0.8em; max-width: 100%; text-align: left; }
         li { margin-bottom: 0.6em; }
         ol, ul { margin-left: 0; padding-left: 0; max-width: 100%; text-align: left; }
         ol { list-style-position: inside; padding-left: 0; margin-left: 1.5em; }
         ul { list-style: none; }
         .info-list li::before, .summary-list li::before { content: none; }
 
-        /* Alternating Backgrounds (Subtle Pink Wash) */
-         .info-list li:not(.flight-info):nth-child(even),
-         .summary-list li:not(.flight-info):nth-child(even) {
-             background-color: rgba(255, 182, 193, 0.06);
-             padding: 0.4em 0.6em; margin-left: -0.6em; margin-right: -0.6em; border-radius: 4px;
-         }
+        /* --- Flight Highlighting --- */
+         .flight-info { font-weight: 700 !important; background-color: rgba(255, 182, 193, 0.3); padding: 0.6em 0.8em 0.6em 1.2em !important; margin: 0.5em -0.8em 0.5em -1.2em !important; border-radius: 4px; display: block; position: relative; border-left: 4px solid #DC143C; line-height: 1.5; }
+        .flight-info .summary-icon { font-size: 1.2em !important; color: #DC143C !important; }
 
-         /* Flight Highlighting */
-         .flight-info {
-             font-weight: 700 !important;
-             background-color: rgba(255, 182, 193, 0.3); /* Stronger pink background */
-             padding: 0.6em 0.8em 0.6em 1.2em !important;
-             margin: 0.5em -0.8em 0.5em -1.2em !important;
-             border-radius: 4px; display: block; position: relative;
-             border-left: 4px solid #DC143C; /* Strong Red left border */ line-height: 1.5;
-         }
-         .flight-info .summary-icon { font-size: 1.2em !important; color: #DC143C !important; }
-
-        /* Recommendation List Styling */
+        /* Recommendation List */
         .recommendation-list { list-style: none; padding-left: 0;}
         .recommendation-list > li { position: relative; padding-left: 1.8em; margin-bottom: 0.6em;}
         .recommendation-list > li::before { font-family: 'Font Awesome 6 Free'; font-weight: 900; content: "\f0da"; color: #FFB6C1; position: absolute; left: 0; top: 0.15em; text-align: center; width: 1.5em; }
@@ -102,11 +87,12 @@
         .recommendation-list ul li { position: relative; padding-left: 0; margin-bottom: 0.4em;}
         .recommendation-list ul li::before { font-family: 'Font Awesome 6 Free'; font-weight: 900; content: "\f111"; color: #DC143C; position: absolute; left: -1.8em; top: 0.15em; text-align: center; width: 1.5em; }
 
-        /* Summary List Styling */
+        /* Summary List */
         .summary-list li { margin-bottom: 0.6em; font-size: 0.9rem; position: relative; padding-left: 2.2em; min-height: 1.4em; }
+        .summary-list li:not(.flight-info):nth-child(even) { background-color: rgba(255, 182, 193, 0.06); padding: 0.4em 0.6em; margin-left: -0.6em; margin-right: -0.6em; padding-left: 2.8em; border-radius: 4px; }
         .summary-list li .summary-icon { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1.8em; text-align: center; line-height: 1; display: inline-block; font-size: 1.1em; }
         .summary-list li i.fa-solid { color: #FFB6C1; font-size: 0.9em; }
-        .summary-list li .weather-info { margin-left: 0.2em; font-size: 0.9em; color: #777; /* Slightly lighter for less emphasis */}
+        .summary-list li .weather-info { margin-left: 0.2em; font-size: 0.9em; color: #777;}
         .summary-list .address-summary { font-size: 0.8em; color: #777; display: block; margin-top: -0.3em; padding-left: 0; }
         .summary-list li .time-tag { font-weight: 700; color: #1a1a1a; display: inline-block; width: 50px; margin-right: 10px; font-size: 0.85em; text-align: right; vertical-align: baseline; }
         .accent-highlight { color: #FFB6C1; position: relative; display: inline-block; font-weight: 700;}
@@ -117,24 +103,24 @@
         strong { color: #1a1a1a; font-weight: 700; display: inline-block; min-width: auto; margin-right: 0.5em;}
         .weather-list strong { min-width: 50px; }
 
-        /* Detailed Plan Formatting */
+        /* --- Detailed Plan Formatting --- */
          .daily-plan-details { margin-top: 1.5em; }
-         .plan-day-block { border: 1px solid rgba(255, 182, 193, 0.3); border-radius: 6px; padding: 1.5em; margin-bottom: 1.5em; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .plan-day-block { border: 1px solid rgba(255, 182, 193, 0.3); border-radius: 6px; padding: 1.5em; margin-bottom: 1.5em; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
         .plan-day-block h6 { font-size: 1rem; font-weight: 700; color: #555; margin-bottom: 1em; padding-bottom: 0.5em; border-bottom: 1px solid rgba(255, 182, 193, 0.3); text-align: left; text-transform: uppercase; letter-spacing: 0.05em;}
          .day-events { padding-left: 0; list-style: none; }
         .plan-event { display: flex; align-items: flex-start; padding: 0.8em 0; border-bottom: 1px dotted rgba(255, 182, 193, 0.4); }
         .plan-event:last-child { border-bottom: none; padding-bottom: 0; }
-         .plan-event:not(.flight-info):nth-child(even) { background-color: rgba(255, 182, 193, 0.06); margin: 0 -1.5em; padding: 0.8em 1.5em; border-radius: 4px; }
+        .plan-event:not(.flight-info):nth-child(even) { background-color: rgba(255, 182, 193, 0.06); margin: 0 -1.5em; padding: 0.8em 1.5em; border-radius: 4px; }
          .event-time { flex: 0 0 70px; font-weight: 700; color: #777; font-size: 0.85rem; padding-right: 1em; text-align: right; margin-top: 0.1em; }
-         .event-icon { flex: 0 0 30px; text-align: center; color: #FFB6C1; /* Pink Icon */ font-size: 1.1em; margin-top: -0.05em; padding-right: 0.5em; }
+         .event-icon { flex: 0 0 30px; text-align: center; color: #FFB6C1; font-size: 1.1em; margin-top: -0.05em; padding-right: 0.5em; }
          .plan-event.flight-info .event-icon { color: #DC143C !important; font-size: 1.2em !important;}
          .event-description { flex: 1; font-size: 0.9rem; color: #1a1a1a; }
          .event-description .details { display: block; font-size: 0.8rem; color: #777; margin-top: 0.3em; padding-left: 0.5em; font-style: italic;}
 
-        /* Tabs Styling (Pink/Red Accent on White) */
+        /* --- Tabs Styling --- */
         .tabs-container { text-align: center; margin-bottom: 2em; margin-top: 1.5em; }
         .tab-button {
-            background-color: #fff; color: #555; border: 1px solid rgba(255, 182, 193, 0.4); /* Pink border */
+            background-color: #fff; color: #555; border: 1px solid rgba(255, 182, 193, 0.4);
             padding: 0.7em 1.4em; margin: 0 5px; cursor: pointer; font-family: 'Roboto', sans-serif;
             font-weight: 400; font-size: 1rem; border-radius: 5px;
             opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -151,24 +137,24 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
          /* Weekly Calendar View */
-        #weekly-calendar { padding: 1.5em 0.5em; /* Less horizontal padding */ background-color: #fff; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); margin-top: 1em; }
+         #weekly-calendar { padding: 1.5em 0.5em; background-color: #fff; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); margin-top: 1em; }
          .calendar-row { display: flex; gap: 0.5em; overflow-x: auto; padding: 0.5em; scrollbar-width: thin; scrollbar-color: #FFB6C1 #eee; }
           .calendar-row::-webkit-scrollbar { height: 8px; }
           .calendar-row::-webkit-scrollbar-track { background: #eee; border-radius: 4px;}
           .calendar-row::-webkit-scrollbar-thumb { background-color: #FFB6C1; border-radius: 4px; border: 2px solid #eee; }
          .calendar-day-column { flex: 1; min-width: 130px; border: 1px solid #f0f0f0; border-radius: 5px; padding: 0.8em; text-align: left; }
           /* Color Coding Classes */
-         .city-travel { background-color: #f1f1f1; color: #555;} /* Lighter neutral */
-         .city-edi { background-color: #dbf5e8; color: #0b3d2c; border-left: 3px solid #63e6be;} /* Adjusted Green */
-         .city-ams { background-color: #f3e0fa; color: #4a1f5e; border-left: 3px solid #c06aec;} /* Adjusted Purple */
-         .city-ber { background-color: #ffe0e6; color: #6b132a; border-left: 3px solid #faa2c1;} /* Adjusted Pink */
+         .city-travel { background-color: #f1f1f1; color: #555;}
+          .city-edi { background-color: #dbf5e8; color: #0b3d2c; border-left: 3px solid #63e6be;} /* Green */
+          .city-ams { background-color: #f3e0fa; color: #4a1f5e; border-left: 3px solid #c06aec;} /* Purple */
+          .city-ber { background-color: #ffe0e6; color: #6b132a; border-left: 3px solid #faa2c1;} /* Pink */
 
          .calendar-day-header { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.6em; padding-bottom: 0.4em; border-bottom: 1px solid rgba(0,0,0,0.1); text-transform: uppercase; letter-spacing: 0.05em; color: inherit; }
          .calendar-day-content { font-size: 0.8rem; line-height: 1.5; color: inherit; }
          .calendar-day-content p { margin-bottom: 0.4em; font-size: 0.8rem; color: inherit; line-height: 1.4; }
          .calendar-day-content strong { font-weight: 700; color: inherit; display: block; margin-bottom: 0.2em; }
          .calendar-day-content .cal-event { display: block; opacity: 0.9; }
-         .cal-event i.fa-solid { margin-right: 0.4em; width: 1em; color: #DC143C; /* Red icon highlight */ }
+         .cal-event i.fa-solid { margin-right: 0.4em; width: 1em; color: #DC143C; }
 
         /* --- Animations --- */
         .fade-in-up, .stagger-fade > *, .typewriter { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
@@ -176,11 +162,10 @@
          :is(section.visible, .tab-content.active) .typewriter { opacity: 1; transform: translateY(0); }
         :is(section.visible, .tab-content.active) .stagger-fade > * { opacity: 1; transform: translateY(0); }
          :is(section.visible, .tab-content.active) .stagger-fade > *:nth-child(1) { transition-delay: 0s ; }
-         :is(section.visible, .tab-content.active) .stagger-fade > *:nth-child(n+2) { transition-delay: calc(0.08s * (n - 1)) ; } /* Simplified stagger delay */
+         :is(section.visible, .tab-content.active) .stagger-fade > *:nth-child(n+2) { transition-delay: calc(0.08s * (n - 1)) ; }
 
         .typewriter-cursor { display: inline-block; width: 8px; height: 1.2em; background-color: #FFB6C1; margin-left: 2px; animation: blink 1s step-end infinite; }
         @keyframes blink { from, to { background-color: transparent } 50% { background-color: #FFB6C1; } }
-
 
         /* --- Responsiveness --- */
          @media (max-width: 1024px) {
@@ -189,41 +174,42 @@
          }
         @media (max-width: 900px) {
              .dashboard-container { flex-direction: column; padding-left: 1em; padding-right: 1em; gap: 0;}
-             .left-column { position: static; height: auto; overflow-y: visible; border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255, 182, 193, 0.4); margin-bottom: 2em; flex-basis: auto; }
-             #daily-summary-anchor { padding-top: 1em; } #detailed-views { padding-top: 1em; } #accommodations-anchor { padding-top: 1em;}
-             #welcome { padding-top: 70px;}
-        }
+             /* Hide left column on mobile */
+              .left-column { display: none; }
+             #daily-summary-anchor { padding-top: 1em; }
+             #detailed-views { padding-top: 1em; }
+             #accommodations-anchor { padding-top: 1em;}
+              #welcome { padding-top: 70px;}
+              /* Right column takes full width now */
+             .right-column { flex: 1 1 100%; }
+         }
         @media (max-width: 768px) {
-             body { font-size: 15px; } h2 { font-size: 1.6rem; } h3 { font-size: 1.1rem; } h4, h5 { font-size: 0.9rem;}
+            body { font-size: 15px; } h2 { font-size: 1.6rem; } h3 { font-size: 1.1rem; } h4, h5 { font-size: 0.9rem;}
             p, li { font-size: 0.9rem; }
-            .summary-list li { font-size: 0.85rem; padding-left: 2em;} .summary-list li .time-tag { display: none; }
-             .summary-list .address-summary { font-size: 0.75em;}
             nav ul { gap: 0.8em; } nav a { font-size: 0.85rem; }
-             .dashboard-container { padding-top: 60px; } .content-wrapper { padding: 0; }
-            ol, ul { margin-left: 0px; padding-left: 0px; } ol { padding-left: 20px;}
-             /* Adjust alternating row padding on mobile */
-             .info-list li:not(.flight-info):nth-child(even), .summary-list li:not(.flight-info):nth-child(even) { margin-left: -0.5em; padding-left: 0.5em; margin-right: -0.5em; padding-right: 0.5em;}
-             .flight-info { margin: 0.5em -0.8em !important; padding: 0.6em 0.8em 0.6em 1.2em !important;} /* Flight highlight mobile */
-            .recommendation-list > li { padding-left: 1.8em; } .recommendation-list > li::before { margin-left: -1.8em;}
-             .recommendation-list ul { margin-left: 0.5em; padding-left: 1.8em;} .recommendation-list ul li::before { margin-left: -1.8em; }
-             strong { min-width: auto; } .weather-list strong { min-width: auto; }
-             .tabs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
-             .tab-button { padding: 0.6em 1em; font-size: 0.85rem; margin: 3px;}
-             .plan-event { flex-direction: column; align-items: flex-start; }
+            .dashboard-container { padding-top: 60px; } .content-wrapper { padding: 0; }
+             ol, ul { margin-left: 0px; padding-left: 0px; } ol { padding-left: 20px;}
+             .info-list li:not(.flight-info):nth-child(even) { margin-left: -0.5em; padding-left: 0.5em; margin-right: -0.5em; padding-right: 0.5em;}
+             .flight-info { margin: 0.5em -0.8em !important; padding: 0.6em 0.8em 0.6em 1.2em !important;}
+             .recommendation-list > li { padding-left: 1.8em; } .recommendation-list > li::before { margin-left: -1.8em;}
+            .recommendation-list ul { margin-left: 0.5em; padding-left: 1.8em;} .recommendation-list ul li::before { margin-left: -1.8em; }
+            strong { min-width: auto; } .weather-list strong { min-width: auto; }
+            .tabs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+            .tab-button { padding: 0.6em 1em; font-size: 0.85rem; margin: 3px;}
+            .plan-event { flex-direction: column; align-items: flex-start; }
              .event-time { flex-basis: auto; width: auto; text-align: left; font-size: 0.8rem; color: #777; margin-bottom: 0.2em;}
              .event-icon { display: inline; font-size: 1em; margin-top: 0; padding-right: 0.4em; flex-basis: auto;}
             .event-description { padding-left: 0; font-size: 0.9rem;}
-            .plan-event:not(.flight-info):nth-child(even) { margin: 0 -0.8em; padding: 0.8em 0.8em; }
+             .plan-event:not(.flight-info):nth-child(even) { margin: 0 -0.8em; padding: 0.8em 0.8em; }
         }
         @media (max-width: 480px) {
-            nav ul { gap: 0.5em; justify-content: space-around;} nav a { font-size: 0.75rem; padding: 0.3em 0;}
+             nav ul { gap: 0.5em; justify-content: space-around;} nav a { font-size: 0.75rem; padding: 0.3em 0;}
             h2 { font-size: 1.4rem; } h3 { font-size: 1.1rem; } h4, h5 { font-size: 0.9rem;}
             p, li { font-size: 0.85rem; }
-             .summary-list li { padding-left: 2em;} .summary-list .address-summary { font-size: 0.7em;}
-             .tab-button { font-size: 0.8rem; padding: 0.5em 0.8em; }
+            .tab-button { font-size: 0.8rem; padding: 0.5em 0.8em; }
              .plan-day-block { padding: 1em; }
              .event-description { font-size: 0.85rem;} .event-description .details { font-size: 0.75rem;}
-            .calendar-day-column { min-width: 110px; padding: 0.6em;} .calendar-day-header { font-size: 0.7rem;} .calendar-day-content { font-size: 0.75rem;} .calendar-day-content p { font-size: 0.75rem;}
+             .calendar-day-column { min-width: 110px; padding: 0.6em;} .calendar-day-header { font-size: 0.7rem;} .calendar-day-content { font-size: 0.75rem;} .calendar-day-content p { font-size: 0.75rem;}
         }
 
     </style>
@@ -233,8 +219,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#welcome">WELCOME 👋</a></li>
-                <li><a href="#daily-summary-anchor">SUMMARY 🗓️</a></li>
+                 <!-- Adjusted Nav Link for Summary when hidden on mobile -->
+                 <li><a href="#welcome">WELCOME 👋</a></li>
+                 <li class="summary-nav-link"><a href="#daily-summary-anchor">SUMMARY 🗓️</a></li> <!-- We can hide this link via JS/CSS if left col is hidden -->
                 <li><a href="#detailed-views">DETAILS 🏙️</a></li>
                  <li><a href="#accommodations-anchor">STAYS 🏨</a></li>
             </ul>
@@ -244,146 +231,79 @@
     <main>
         <!-- WELCOME SECTION -->
         <section id="welcome">
-             <div class="content-wrapper" style="max-width: 1400px;">
+            <div class="content-wrapper" style="max-width: 1400px;">
                  <h2 class="typewriter">EUROPE <span class="accent-highlight">2025</span>: TRIP DASHBOARD</h2>
 
-                 <!-- WEEKLY CALENDAR VIEW -->
-                  <div id="weekly-calendar" class="fade-in-up">
+                <!-- WEEKLY CALENDAR VIEW -->
+                <div id="weekly-calendar" class="fade-in-up">
                      <div class="calendar-row">
-                         <div class="calendar-day-column city-travel">
-                            <div class="calendar-day-header">TUE, APR 1</div>
-                             <div class="calendar-day-content">
-                                 <strong>TRAVEL DAY</strong>
-                                <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 18:45 Depart JFK</p>
-                            </div>
-                         </div>
-                        <div class="calendar-day-column city-edi">
-                             <div class="calendar-day-header">WED, APR 2</div>
-                            <div class="calendar-day-content">
-                                <strong>EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong>
-                                <p class="cal-event"><i class="fa-solid fa-plane-arrival"></i> 06:45 Arrive EDI</p>
-                                 <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In: St Chris</p>
-                                <p class="cal-event"><i class="fa-solid fa-info"></i> Castle, R Mile</p>
-                             </div>
-                        </div>
-                         <div class="calendar-day-column city-edi">
-                             <div class="calendar-day-header">THU, APR 3</div>
-                             <div class="calendar-day-content">
-                                 <strong>EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong>
-                                 <p class="cal-event"><i class="fa-solid fa-person-hiking"></i> Arthur's Seat</p>
-                                <p class="cal-event"><i class="fa-solid fa-landmark-dome"></i> Holyrood Pal.</p>
-                                 <p class="cal-event"><i class="fa-solid fa-ghost"></i> Ghost Tour</p>
-                             </div>
-                         </div>
-                         <div class="calendar-day-column city-edi">
-                             <div class="calendar-day-header">FRI, APR 4</div>
-                             <div class="calendar-day-content">
-                                <strong>EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong>
-                                 <p class="cal-event"><i class="fa-solid fa-right-from-bracket"></i> Chk-Out St Chris</p>
-                                <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In: T'lodge</p>
-                                <p class="cal-event"><i class="fa-solid fa-tree"></i> Dean Village</p>
-                                <p class="cal-event"><i class="fa-solid fa-palette"></i> Nat. Gallery</p>
-                            </div>
-                         </div>
-                         <div class="calendar-day-column city-ams">
-                             <div class="calendar-day-header">SAT, APR 5</div>
-                            <div class="calendar-day-content">
-                                <strong>AMS 🇳🇱</strong>
-                                <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 07:00 Depart EDI</p>
-                                <p class="cal-event"><i class="fa-solid fa-plane-arrival"></i> 09:35 Arrive AMS</p>
-                                <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In: Stayokay</p>
-                                <p class="cal-event"><i class="fa-solid fa-sailboat"></i> Canal Cruise</p>
-                            </div>
-                         </div>
-                         <div class="calendar-day-column city-ams">
-                             <div class="calendar-day-header">SUN, APR 6</div>
-                            <div class="calendar-day-content">
-                                <strong>AMS 🇳🇱</strong>
-                                <p class="cal-event"><i class="fa-solid fa-camera-retro"></i> Keukenhof</p>
-                                <p class="cal-event"><i class="fa-solid fa-mug-hot"></i> Coffeeshop</p>
-                                <p class="cal-event"><i class="fa-solid fa-bicycle"></i> Bike / Shop</p>
-                            </div>
-                         </div>
-                        <div class="calendar-day-column city-ber">
-                             <div class="calendar-day-header">MON, APR 7</div>
-                             <div class="calendar-day-content">
-                                <strong>BERLIN 🇩🇪</strong>
-                                <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 08:45 Depart AMS</p>
-                                <p class="cal-event"><i class="fa-solid fa-plane-arrival"></i> 10:05 Arrive BER</p>
-                                <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In: Circus</p>
-                                <p class="cal-event"><i class="fa-solid fa-landmark"></i> Memorials</p>
-                            </div>
-                         </div>
-                         <div class="calendar-day-column city-travel">
-                             <div class="calendar-day-header">TUE, APR 8</div>
-                             <div class="calendar-day-content">
-                                <strong>TRAVEL DAY</strong>
-                                <p class="cal-event"><i class="fa-solid fa-utensils"></i> Brunch</p>
-                                <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 13:50 Depart BER</p>
-                                <p class="cal-event"><i class="fa-solid fa-stopwatch"></i> Layover BCN</p>
-                                <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 18:40 Depart BCN</p>
-                                <p class="cal-event"><i class="fa-solid fa-house"></i> 21:40 Arrive JFK</p>
-                            </div>
-                        </div>
-                    </div>
+                         <div class="calendar-day-column city-travel"> <div class="calendar-day-header">TUE, APR 1</div> <div class="calendar-day-content"> <strong>TRAVEL DAY</strong> <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 18:45 Depart JFK</p> </div> </div>
+                         <div class="calendar-day-column city-edi"> <div class="calendar-day-header">WED, APR 2</div> <div class="calendar-day-content"> <strong>EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong> <p class="cal-event"><i class="fa-solid fa-plane-arrival"></i> 06:45 Arrive</p> <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In St Chris</p> <p class="cal-event"><i class="fa-solid fa-info"></i> Castle</p> </div> </div>
+                         <div class="calendar-day-column city-edi"> <div class="calendar-day-header">THU, APR 3</div> <div class="calendar-day-content"> <strong>EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong> <p class="cal-event"><i class="fa-solid fa-person-hiking"></i> Arthur's Seat</p> <p class="cal-event"><i class="fa-solid fa-landmark-dome"></i> Holyrood</p> <p class="cal-event"><i class="fa-solid fa-ghost"></i> Ghost Tour</p> </div> </div>
+                         <div class="calendar-day-column city-edi"> <div class="calendar-day-header">FRI, APR 4</div> <div class="calendar-day-content"> <strong>EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong> <p class="cal-event"><i class="fa-solid fa-bed"></i> Change Hotel</p> <p class="cal-event"><i class="fa-solid fa-tree"></i> Dean Village</p> <p class="cal-event"><i class="fa-solid fa-palette"></i> Gallery</p> </div> </div>
+                         <div class="calendar-day-column city-ams"> <div class="calendar-day-header">SAT, APR 5</div> <div class="calendar-day-content"> <strong>AMS 🇳🇱</strong> <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 07:00 Depart EDI</p> <p class="cal-event"><i class="fa-solid fa-plane-arrival"></i> 09:35 Arrive AMS</p> <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In Stayokay</p> <p class="cal-event"><i class="fa-solid fa-sailboat"></i> Canal Cruise</p> </div> </div>
+                         <div class="calendar-day-column city-ams"> <div class="calendar-day-header">SUN, APR 6</div> <div class="calendar-day-content"> <strong>AMS 🇳🇱</strong> <p class="cal-event"><i class="fa-solid fa-camera-retro"></i> Keukenhof</p> <p class="cal-event"><i class="fa-solid fa-mug-hot"></i> Coffeeshop</p> <p class="cal-event"><i class="fa-solid fa-map-pin"></i> Explore</p> </div> </div>
+                         <div class="calendar-day-column city-ber"> <div class="calendar-day-header">MON, APR 7</div> <div class="calendar-day-content"> <strong>BERLIN 🇩🇪</strong> <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 08:45 Depart AMS</p> <p class="cal-event"><i class="fa-solid fa-plane-arrival"></i> 10:05 Arrive BER</p> <p class="cal-event"><i class="fa-solid fa-bed"></i> Chk-In Circus</p> <p class="cal-event"><i class="fa-solid fa-landmark"></i> Memorials</p> </div> </div>
+                         <div class="calendar-day-column city-travel"> <div class="calendar-day-header">TUE, APR 8</div> <div class="calendar-day-content"> <strong>TRAVEL DAY</strong> <p class="cal-event"><i class="fa-solid fa-utensils"></i> Brunch</p> <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 13:50 Depart BER</p> <p class="cal-event"><i class="fa-solid fa-stopwatch"></i> Layover BCN</p> <p class="cal-event"><i class="fa-solid fa-plane-departure"></i> 18:40 Depart BCN</p> <p class="cal-event"><i class="fa-solid fa-house"></i> 21:40 Arrive JFK</p> </div> </div>
+                     </div>
                  </div>
 
              </div>
          </section>
 
         <!-- DASHBOARD CONTAINER -->
-         <div class="dashboard-container">
+        <div class="dashboard-container">
 
             <!-- LEFT COLUMN (Summary) -->
-            <div class="left-column">
-                <section id="daily-summary-anchor">
-                    <div class="content-wrapper">
+             <div class="left-column">
+                 <section id="daily-summary-anchor">
+                     <div class="content-wrapper">
                         <h3 class="fade-in-up" style="color: #1a1a1a; margin-top: 0;">DAILY SUMMARY</h3>
-                        <div class="daily-log fade-in-up">
-                            <!-- Daily Summary content as before, including corrected Berlin Day 8 -->
-                             <div class="day-entry stagger-fade">
-                                <h5 style="color: #333;">TUE, APR 1</h5>
+                         <div class="daily-log fade-in-up">
+                             <!-- Day entries remain here, now with correct Day 8 timing -->
+                            <div class="day-entry stagger-fade">
+                                 <h5 style="color: #333;">TUE, APR 1</h5>
                                  <ul class="summary-list">
                                      <li class="flight-info"><span class="summary-icon">✈️</span> <span class="time-tag">18:45</span> DEPART JFK (DELTA 208)</li>
-                                 </ul>
+                                </ul>
                              </div>
-                             <div class="day-entry stagger-fade">
-                                <h5>WED, APR 2 - EDI</h5>
+                              <div class="day-entry stagger-fade">
+                                 <h5>WED, APR 2 - EDI</h5>
                                  <ul class="summary-list">
                                     <li><span class="summary-icon">🌦️</span><span class="weather-info"> 58°F/39°F</span></li>
-                                    <li class="flight-info"><span class="summary-icon">🛬</span> <span class="time-tag">06:45</span> ARRIVE EDI</li>
+                                     <li class="flight-info"><span class="summary-icon">🛬</span> <span class="time-tag">06:45</span> ARRIVE EDI</li>
                                      <li><span class="summary-icon">🚌</span> <span class="time-tag">~7:15</span> TRANSPORT</li>
                                      <li><span class="summary-icon">🍳</span> <span class="time-tag">08:00</span> BKFST W/ ALLAN</li>
-                                    <li><span class="summary-icon">🏨</span> <span class="time-tag">AM</span> CHK-IN: ST CHRIS <span class="address-summary">(9-13 MARKET ST)</span></li>
-                                    <li><span class="summary-icon">🏰</span> <span class="time-tag">09:30</span> E. CASTLE</li>
+                                     <li><span class="summary-icon">🏨</span> <span class="time-tag">AM</span> CHK-IN: ST CHRIS <span class="address-summary">(9-13 MARKET ST)</span></li>
+                                     <li><span class="summary-icon">🏰</span> <span class="time-tag">09:30</span> E. CASTLE</li>
                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~12:00</span> LUNCH</li>
-                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~18:00</span> DINNER</li>
-                                </ul>
+                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~18:00</span> DINNER</li>
+                                 </ul>
                              </div>
-                             <div class="day-entry stagger-fade">
+                            <div class="day-entry stagger-fade">
                                 <h5>THU, APR 3 - EDI</h5>
-                                <ul class="summary-list">
-                                    <li><span class="summary-icon">☁️</span><span class="weather-info"> 56°F/41°F</span></li>
-                                    <li><span class="summary-icon">⛰️</span> <span class="time-tag">10:00</span> ARTHUR'S SEAT</li>
-                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~13:00</span> LUNCH</li>
-                                    <li><span class="summary-icon">👑</span> <span class="time-tag">14:30</span> HOLYROOD PAL.</li>
-                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~19:00</span> DINNER</li>
-                                    <li><span class="summary-icon">👻</span> <span class="time-tag">21:00</span> GHOST TOUR</li>
-                                </ul>
-                             </div>
-                             <div class="day-entry stagger-fade">
-                                <h5>FRI, APR 4 - EDI</h5>
                                  <ul class="summary-list">
-                                     <li><span class="summary-icon">🌧️</span><span class="weather-info"> 50°F/43°F (RAIN)</span></li>
-                                    <li><span class="summary-icon">🚪</span> <span class="time-tag">AM</span> CHK-OUT ST C'S</li>
-                                    <li><span class="summary-icon">🏨</span> <span class="time-tag">AM</span> CHK-IN T'LODGE <span class="address-summary">(17 WATERLOO PL)</span></li>
-                                    <li><span class="summary-icon">🌳</span> <span class="time-tag">11:00</span> DEAN VILLAGE</li>
-                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~13:00</span> LUNCH</li>
-                                     <li><span class="summary-icon">🖼️</span> <span class="time-tag">15:00</span> NAT. GALLERY</li>
+                                     <li><span class="summary-icon">☁️</span><span class="weather-info"> 56°F/41°F</span></li>
+                                     <li><span class="summary-icon">⛰️</span> <span class="time-tag">10:00</span> ARTHUR'S SEAT</li>
+                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~13:00</span> LUNCH</li>
+                                     <li><span class="summary-icon">👑</span> <span class="time-tag">14:30</span> HOLYROOD PAL.</li>
                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~19:00</span> DINNER</li>
-                                </ul>
+                                     <li><span class="summary-icon">👻</span> <span class="time-tag">21:00</span> GHOST TOUR</li>
+                                 </ul>
                             </div>
                             <div class="day-entry stagger-fade">
+                                <h5>FRI, APR 4 - EDI</h5>
+                                <ul class="summary-list">
+                                     <li><span class="summary-icon">🌧️</span><span class="weather-info"> 50°F/43°F (RAIN)</span></li>
+                                    <li><span class="summary-icon">🚪</span> <span class="time-tag">AM</span> CHK-OUT ST C'S</li>
+                                     <li><span class="summary-icon">🏨</span> <span class="time-tag">AM</span> CHK-IN T'LODGE <span class="address-summary">(17 WATERLOO PL)</span></li>
+                                     <li><span class="summary-icon">🌳</span> <span class="time-tag">11:00</span> DEAN VILLAGE</li>
+                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~13:00</span> LUNCH</li>
+                                    <li><span class="summary-icon">🖼️</span> <span class="time-tag">15:00</span> NAT. GALLERY</li>
+                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~19:00</span> DINNER</li>
+                                </ul>
+                             </div>
+                             <div class="day-entry stagger-fade">
                                 <h5>SAT, APR 5 - EDI → AMS</h5>
                                 <ul class="summary-list">
                                     <li><span class="summary-icon">🌤️</span><span class="weather-info"> AMS: 55°F/39°F</span></li>
@@ -391,12 +311,12 @@
                                     <li class="flight-info"><span class="summary-icon">🛬</span> <span class="time-tag">09:35</span> ARRIVE AMS</li>
                                     <li><span class="summary-icon">🚌</span> <span class="time-tag">~10:15</span> BUS 397</li>
                                     <li><span class="summary-icon">🏨</span> <span class="time-tag">~11:00</span> DROP BAGS STAYOKAY <span class="address-summary">(ZANDPAD 5)</span></li>
-                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~12:30</span> LUNCH</li>
+                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~12:30</span> LUNCH</li>
                                     <li><span class="summary-icon">⛵</span> <span class="time-tag">14:30</span> CANAL CRUISE</li>
-                                    <li><span class="summary-icon">☕</span> <span class="time-tag">16:00</span> COFFEESHOP</li>
-                                    <li><span class="summary-icon">🍽️</span> <span class="time-tag">~19:30</span> DINNER</li>
+                                     <li><span class="summary-icon">☕</span> <span class="time-tag">16:00</span> COFFEESHOP</li>
+                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~19:30</span> DINNER</li>
                                 </ul>
-                            </div>
+                             </div>
                              <div class="day-entry stagger-fade">
                                 <h5>SUN, APR 6 - AMS</h5>
                                 <ul class="summary-list">
@@ -407,24 +327,24 @@
                                     <li><span class="summary-icon">☕</span> <span class="time-tag">16:00</span> COFFEESHOP</li>
                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~18:00</span> DINNER</li>
                                 </ul>
-                            </div>
-                             <div class="day-entry stagger-fade">
+                             </div>
+                            <div class="day-entry stagger-fade">
                                 <h5>MON, APR 7 - AMS → BER</h5>
                                 <ul class="summary-list">
                                     <li><span class="summary-icon">☀️</span><span class="weather-info"> BER: 51°F/39°F</span></li>
                                     <li><span class="summary-icon">🚪</span> <span class="time-tag">07:00</span> CHK-OUT STAYOKAY</li>
-                                    <li><span class="summary-icon">🚕</span> <span class="time-tag">~07:15</span> TO AMS APT</li>
+                                     <li><span class="summary-icon">🚕</span> <span class="time-tag">~07:15</span> TO AMS APT</li>
                                      <li class="flight-info"><span class="summary-icon">✈️</span> <span class="time-tag">08:45</span> DEPART AMS (KLM 1773)</li>
                                     <li class="flight-info"><span class="summary-icon">🛬</span> <span class="time-tag">10:05</span> ARRIVE BER</li>
-                                    <li><span class="summary-icon">🚌</span> <span class="time-tag">~10:30</span> AIRPORT BUS/TRAIN</li>
+                                     <li><span class="summary-icon">🚌</span> <span class="time-tag">~10:30</span> AIRPORT BUS/TRAIN</li>
                                     <li><span class="summary-icon">🏨</span> <span class="time-tag">~11:30</span> CHK-IN CIRCUS <span class="address-summary">(WEINBERGSWEG 1A)</span></li>
                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~12:30</span> LUNCH</li>
-                                    <li><span class="summary-icon">🕯️</span> <span class="time-tag">14:00</span> JEWISH MEM.</li>
+                                     <li><span class="summary-icon">🕯️</span> <span class="time-tag">14:00</span> JEWISH MEM.</li>
                                      <li><span class="summary-icon">🧱</span> <span class="time-tag">16:00</span> WALL MEMORIAL</li>
                                     <li><span class="summary-icon">🍽️</span> <span class="time-tag">~19:30</span> DINNER / BEER GARDEN 🍻</li>
                                 </ul>
-                            </div>
-                            <!-- Corrected Berlin Day 8 Summary -->
+                             </div>
+                             <!-- Corrected Berlin Day 8 Summary Timing -->
                              <div class="day-entry stagger-fade">
                                  <h5>TUE, APR 8 - BER → NYC</h5>
                                  <ul class="summary-list">
@@ -432,221 +352,220 @@
                                      <li><span class="summary-icon">🚪</span> <span class="time-tag">~8:00</span> CHK-OUT CIRCUS, STORE BAGS</li>
                                      <li><span class="summary-icon">🍳☕</span> <span class="time-tag">~8:15</span> BRUNCH NEARBY</li>
                                      <li><span class="summary-icon">🎒</span> <span class="time-tag">~11:15</span> COLLECT LUGGAGE</li>
-                                     <li><span class="summary-icon">🚌</span> <span class="time-tag">~11:20</span> LEAVE FOR BER AIRPORT</li>
+                                    <li><span class="summary-icon">🚌</span> <span class="time-tag">~11:20</span> LEAVE FOR BER AIRPORT</li>
                                       <li class="flight-info"><span class="summary-icon">✈️</span> <span class="time-tag">13:50</span> DEPART BER (VUELING 1883)</li>
                                      <li class="flight-info"><span class="summary-icon">⏳</span> <span class="time-tag">~16:30</span> LAYOVER BCN (2H 10M)</li>
                                       <li class="flight-info"><span class="summary-icon">✈️</span> <span class="time-tag">18:40</span> DEPART BCN (LEVEL/IB 9797)</li>
-                                      <li class="flight-info"><span class="summary-icon">🛬</span> <span class="time-tag">21:40</span> ARRIVE JFK</li>
+                                     <li class="flight-info"><span class="summary-icon">🛬</span> <span class="time-tag">21:40</span> ARRIVE JFK</li>
                                  </ul>
-                             </div>
+                            </div>
+                         </div>
+                    </div>
+                 </section>
+            </div> <!-- /left-column -->
 
-                        </div>
-                     </div>
-                </section>
-             </div> <!-- /left-column -->
+             <!-- RIGHT COLUMN (Details + Accommodation) -->
+            <div class="right-column">
 
-            <!-- RIGHT COLUMN (Details + Accommodation) -->
-             <div class="right-column">
+                 <!-- City Details Tabs Section -->
+                <section id="detailed-views">
+                     <div class="content-wrapper">
+                        <!-- Updated H3 Title -->
+                         <h3 class="fade-in-up" style="margin-top: 0; text-align: center;">SELECT A CITY FOR DETAILS</h3>
 
-                <!-- City Details Tabs Section -->
-                 <section id="detailed-views">
-                    <div class="content-wrapper">
-                        <h3 class="fade-in-up" style="margin-top: 0;">CITY DETAILS</h3>
-
-                         <div class="tabs-container fade-in-up">
+                        <div class="tabs-container fade-in-up">
                             <button class="tab-button active" data-target="edinburgh-view">EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</button>
                              <button class="tab-button" data-target="amsterdam-view">AMSTERDAM 🇳🇱</button>
-                            <button class="tab-button" data-target="berlin-view">BERLIN 🇩🇪</button>
-                         </div>
+                             <button class="tab-button" data-target="berlin-view">BERLIN 🇩🇪</button>
+                        </div>
 
-                        <div class="tab-content-area">
-
+                         <div class="tab-content-area">
                             <!-- EDINBURGH TAB -->
                             <div id="edinburgh-view" class="tab-content active">
-                                <h4 class="fade-in-up">EDINBURGH: MYSTICAL SCOTLAND</h4>
+                                <h4 class="fade-in-up">Edinburgh: Mystical Scotland</h4>
                                 <p class="fade-in-up" style="margin-bottom: 2em; text-align: center;">APRIL 2ND - APRIL 5TH, 2025</p>
                                 <h5 class="fade-in-up">✈️ FLIGHTS</h5>
-                                <div class="fade-in-up info-list">
-                                    <p class="flight-info"><strong>TUE, APR 1: NYC → EDI</strong> | AIRLINE: <strong>DELTA AIR LINES 208</strong> | 18:45 (JFK) → 06:45 (APR 2, EDI) | DUR: 7H | CONF: H8PNK4</p>
-                                    <p class="flight-info"><strong>SAT, APR 5: EDI → AMS</strong> | AIRLINE: <strong>EASYJET 3301</strong> | 07:00 (EDI) → 09:35 (AMS) | DUR: 1H 35M | CONF: K8K9JZH</p>
-                                </div>
+                                 <div class="fade-in-up info-list">
+                                    <p class="flight-info"><strong>TUE, APR 1: NYC → EDI</strong> | AIRLINE: <strong>Delta Air Lines 208</strong> | 18:45 (JFK) → 06:45 (Apr 2, EDI) | DUR: 7H | CONF: H8PNK4</p>
+                                    <p class="flight-info"><strong>SAT, APR 5: EDI → AMS</strong> | AIRLINE: <strong>easyJet 3301</strong> | 07:00 (EDI) → 09:35 (AMS) | DUR: 1H 35M | CONF: K8K9JZH</p>
+                                 </div>
                                 <h5 class="fade-in-up">🌦️ WEATHER (F)</h5>
-                                <div class="fade-in-up stagger-fade info-list weather-list">
-                                    <p><strong>WED, APR 2:</strong> HIGH: 58 | LOW: 39 | P CLOUDY, SHOWERS 🌦️</p>
-                                    <p><strong>THU, APR 3:</strong> HIGH: 56 | LOW: 41 | M CLOUDY ☁️</p>
-                                    <p><strong>FRI, APR 4:</strong> HIGH: 50 | LOW: 43 | AM RAIN, CLEAR 🌧️/☀️</p>
-                                </div>
+                                 <div class="fade-in-up stagger-fade info-list weather-list">
+                                     <p><strong>WED, APR 2:</strong> HIGH: 58 | LOW: 39 | P CLOUDY, SHOWERS 🌦️</p>
+                                     <p><strong>THU, APR 3:</strong> HIGH: 56 | LOW: 41 | M CLOUDY ☁️</p>
+                                     <p><strong>FRI, APR 4:</strong> HIGH: 50 | LOW: 43 | AM RAIN, CLEAR 🌧️/☀️</p>
+                                 </div>
                                 <h5 class="fade-in-up">⭐ RECS (LESS TOURISTY)</h5>
+                                <div class="fade-in-up recommendation-list">
+                                    <ul><li>DEAN VILLAGE/WATER OF LEITH WALK 🌳</li> <li>STOCKBRIDGE EXPLORATION 🛍️</li> <li>CALTON HILL VIEWS 🌄</li> <li>LEITH WATERFRONT DINING 🍽️</li> <li>AUTHENTIC PUBS (NEW TOWN/SOUTHSIDE) 🍻</li> <li>POTENTIAL DAY TRIP (STIRLING/N.BERWICK) 🏰🌊</li></ul>
+                                 </div>
+                                 <h5 class="fade-in-up">🗓️ DETAILED DAILY PLAN</h5>
+                                 <div class="daily-plan-details fade-in-up">
+                                    <div class="plan-day-block stagger-fade">
+                                         <h6><i class="fa-regular fa-calendar-days"></i> WEDNESDAY, APRIL 2ND</h6>
+                                         <div class="day-events">
+                                            <div class="plan-event flight-info"><span class="event-time">06:45</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT EDINBURGH AIRPORT (EDI).</span></div>
+                                             <div class="plan-event"><span class="event-time">07:15</span><span class="event-icon">🚌</span><span class="event-description">TAKE AIRPORT BUS (AIRLINK 100) TO CITY CENTER (~30 MIN).</span></div>
+                                             <div class="plan-event"><span class="event-time">08:00</span><span class="event-icon">🍳</span><span class="event-description">SCOTTISH BREAKFAST AT WETHERSPOONS WITH ALLAN.</span></div>
+                                             <div class="plan-event"><span class="event-time">AM</span><span class="event-icon">🏨</span><span class="event-description">CHECK BAGS / CHECK-IN AT ST CHRISTOPHER'S ORIGINAL.</span></div>
+                                             <div class="plan-event"><span class="event-time">09:30</span><span class="event-icon">🏰</span><span class="event-description">EDINBURGH CASTLE TOUR (~2 HOURS). <span class="details">~12 MIN WALK FROM HOSTEL.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">12:00</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH AT THE ELEPHANT HOUSE. <span class="details">KNOWN FOR J.K. ROWLING CONNECTION. ~10 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">13:30</span><span class="event-icon">🚶‍♀️</span><span class="event-description">EXPLORE THE ROYAL MILE. <span class="details">HISTORIC STREET CONNECTING CASTLE & PALACE. ~5 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">15:30</span><span class="event-icon">🏛️</span><span class="event-description">NATIONAL MUSEUM OF SCOTLAND. <span class="details">CLOSES 17:45. ~8 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">18:00</span><span class="event-icon">🍽️</span><span class="event-description">DINNER AT THE OUTSIDER. <span class="details">RESTAURANT WITH CASTLE VIEWS. ~10 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">20:00</span><span class="event-icon">🍸</span><span class="event-description">DRINKS AT PANDA & SONS SPEAKEASY. <span class="details">79 QUEEN ST. ~15 MIN WALK.</span></span></div>
+                                         </div>
+                                     </div>
+                                     <div class="plan-day-block stagger-fade">
+                                        <h6><i class="fa-regular fa-calendar-days"></i> THURSDAY, APRIL 3RD</h6>
+                                         <div class="day-events">
+                                             <div class="plan-event"><span class="event-time">AM</span><span class="event-icon">🍳</span><span class="event-description">BREAKFAST AT HOSTEL OR NEARBY CAFE.</span></div>
+                                              <div class="plan-event"><span class="event-time">10:00</span><span class="event-icon">⛰️</span><span class="event-description">HIKE UP ARTHUR'S SEAT (~3 HOURS ROUND TRIP). <span class="details">ICONIC HILL, PANORAMIC VIEWS. ~35 MIN WALK OR BUS.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">13:00</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH IN HOLYROOD AREA. <span class="details">NEAR BASE OF ARTHUR'S SEAT.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">14:30</span><span class="event-icon">👑</span><span class="event-description">VISIT PALACE OF HOLYROODHOUSE. <span class="details">THE QUEEN'S OFFICIAL SCOTTISH RESIDENCE.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">16:30</span><span class="event-icon">🌳</span><span class="event-description">OPTIONAL: ROYAL BOTANIC GARDEN (WEATHER PERMITTING). <span class="details">~25 MIN BUS RIDE.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">19:00</span><span class="event-icon">🍽️</span><span class="event-description">DINNER AT HOWIES VICTORIA STREET. <span class="details">SCOTTISH RESTAURANT ON A FAMOUS STREET. ~20 MIN BUS.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">21:00</span><span class="event-icon">👻</span><span class="event-description">EDINBURGH GHOST TOUR (~2 HOURS). <span class="details">EXPLORE THE CITY'S DARKER HISTORY. STARTS NEAR DINNER.</span></span></div>
+                                         </div>
+                                     </div>
+                                     <div class="plan-day-block stagger-fade">
+                                        <h6><i class="fa-regular fa-calendar-days"></i> FRIDAY, APRIL 4TH</h6>
+                                         <div class="day-events">
+                                              <div class="plan-event"><span class="event-time">AM</span><span class="event-icon">🍳</span><span class="event-description">BREAKFAST.</span></div>
+                                             <div class="plan-event"><span class="event-time">09:30</span><span class="event-icon">🚪</span><span class="event-description">CHECK OUT OF ST CHRISTOPHER'S.</span></div>
+                                             <div class="plan-event"><span class="event-time">10:00</span><span class="event-icon">🧳</span><span class="event-description">STORE LUGGAGE / CHECK-IN (LATER) TRAVELODGE. <span class="details">~15 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">11:00</span><span class="event-icon">🌳</span><span class="event-description">WALK THROUGH DEAN VILLAGE & WATER OF LEITH. <span class="details">PICTURESQUE HIDDEN GEM. ~20 MIN WALK FROM TRAVELODGE.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">13:00</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH IN STOCKBRIDGE AREA. <span class="details">CHARMING NEIGHBORHOOD FEEL. ~15 MIN WALK FROM DEAN V.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">15:00</span><span class="event-icon">🖼️</span><span class="event-description">VISIT SCOTTISH NATIONAL GALLERY. <span class="details">~20 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">17:00</span><span class="event-icon">🏨</span><span class="event-description">OFFICIAL CHECK-IN / SETTLE AT TRAVELODGE. <span class="details">~10 MIN WALK.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">19:00</span><span class="event-icon">🍽️🕯️</span><span class="event-description">DINNER AT THE WITCHERY BY THE CASTLE. <span class="details">ATMOSPHERIC, GOTHIC RESTAURANT. ~15 MIN WALK. BOOK AHEAD!</span></span></div>
+                                              <div class="plan-event"><span class="event-time">21:00</span><span class="event-icon">🍻</span><span class="event-description">PUB EVENING AT THE WORLD'S END. <span class="details">HISTORIC PUB ON ROYAL MILE. ~10 MIN WALK.</span></span></div>
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+
+                            <!-- AMSTERDAM TAB -->
+                             <div id="amsterdam-view" class="tab-content">
+                                 <h4 class="fade-in-up">AMSTERDAM: CANALS & CREATIVITY</h4>
+                                <p class="fade-in-up" style="margin-bottom: 2em; text-align: center;">APRIL 5TH - APRIL 7TH, 2025</p>
+                                <h5 class="fade-in-up">✈️ FLIGHTS</h5>
+                                <div class="fade-in-up info-list">
+                                     <p class="flight-info"><strong>MON, APR 7: AMS → BER</strong> | AIRLINE: <strong>KLM ROYAL DUTCH AIRLINES 1773</strong> | 08:45 (AMS) → 10:05 (BER) | DUR: 1H 20M | CONF: LVLY3T</p>
+                                 </div>
+                                 <h5 class="fade-in-up">🌦️ WEATHER (F)</h5>
+                                 <div class="fade-in-up stagger-fade info-list weather-list">
+                                     <p><strong>SAT, APR 5:</strong> HIGH: 55 | LOW: 39 | P SUNNY, WIND ☀️💨</p>
+                                     <p><strong>SUN, APR 6:</strong> HIGH: 54 | LOW: 41 | M SUNNY ☀️</p>
+                                </div>
+                                <h5 class="fade-in-up">⭐ TOP ATTRACTIONS (RANKED)</h5>
                                  <div class="fade-in-up recommendation-list">
-                                     <ul><li>DEAN VILLAGE/WATER OF LEITH WALK 🌳</li> <li>STOCKBRIDGE EXPLORATION 🛍️</li> <li>CALTON HILL VIEWS 🌄</li> <li>LEITH WATERFRONT DINING 🍽️</li> <li>AUTHENTIC PUBS (NEW TOWN/SOUTHSIDE) 🍻</li> <li>POTENTIAL DAY TRIP (STIRLING/N.BERWICK) 🏰🌊</li></ul>
+                                     <ol><li>CANAL CRUISE ⛵</li><li>COFFEESHOP (PRIX D'AMI/ABRAXAS) ☕</li><li>SMART SHOPS (TRUFFLES) ✨</li><li>KEUKENHOF GARDENS (BOOK AHEAD!) 🌷</li><li>A'DAM LOOKOUT/SWING 🏙️</li><li>VAN GOGH MUSEUM 🎨</li><li>ANNE FRANK HOUSE (BOOK WAY AHEAD!) 📖</li><li>80S ROLLER SKATING 🛼</li><li>FREE CONCERTS 🎶</li><li>5D FLIGHT VR 🎢</li><li>BIKE RIDE (E.G., WATERLAND) 🚲</li><li>VINTAGE SHOPPING (CKX, LUCILLE) 🛍️</li></ol>
                                  </div>
                                 <h5 class="fade-in-up">🗓️ DETAILED DAILY PLAN</h5>
                                 <div class="daily-plan-details fade-in-up">
                                      <div class="plan-day-block stagger-fade">
-                                         <h6><i class="fa-regular fa-calendar-days"></i> WEDNESDAY, APRIL 2ND</h6>
-                                        <div class="day-events">
-                                            <div class="plan-event flight-info"><span class="event-time">06:45</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT EDINBURGH AIRPORT (EDI).</span></div>
-                                            <div class="plan-event"><span class="event-time">07:15</span><span class="event-icon">🚌</span><span class="event-description">TAKE AIRPORT BUS (AIRLINK 100) TO CITY CENTER (~30 MIN).</span></div>
-                                            <div class="plan-event"><span class="event-time">08:00</span><span class="event-icon">🍳</span><span class="event-description">SCOTTISH BREAKFAST AT WETHERSPOONS WITH ALLAN.</span></div>
-                                            <div class="plan-event"><span class="event-time">AM</span><span class="event-icon">🏨</span><span class="event-description">CHECK BAGS / CHECK-IN AT ST CHRISTOPHER'S ORIGINAL.</span></div>
-                                            <div class="plan-event"><span class="event-time">09:30</span><span class="event-icon">🏰</span><span class="event-description">EDINBURGH CASTLE TOUR (~2 HOURS). <span class="details">~12 MIN WALK FROM HOSTEL.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">12:00</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH AT THE ELEPHANT HOUSE. <span class="details">KNOWN FOR J.K. ROWLING CONNECTION. ~10 MIN WALK.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">13:30</span><span class="event-icon">🚶‍♀️</span><span class="event-description">EXPLORE THE ROYAL MILE. <span class="details">HISTORIC STREET CONNECTING CASTLE & PALACE. ~5 MIN WALK.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">15:30</span><span class="event-icon">🏛️</span><span class="event-description">NATIONAL MUSEUM OF SCOTLAND. <span class="details">CLOSES 17:45. ~8 MIN WALK.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">18:00</span><span class="event-icon">🍽️</span><span class="event-description">DINNER AT THE OUTSIDER. <span class="details">RESTAURANT WITH CASTLE VIEWS. ~10 MIN WALK.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">20:00</span><span class="event-icon">🍸</span><span class="event-description">DRINKS AT PANDA & SONS SPEAKEASY. <span class="details">79 QUEEN ST. ~15 MIN WALK.</span></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="plan-day-block stagger-fade">
-                                         <h6><i class="fa-regular fa-calendar-days"></i> THURSDAY, APRIL 3RD</h6>
-                                        <div class="day-events">
-                                            <div class="plan-event"><span class="event-time">AM</span><span class="event-icon">🍳</span><span class="event-description">BREAKFAST AT HOSTEL OR NEARBY CAFE.</span></div>
-                                             <div class="plan-event"><span class="event-time">10:00</span><span class="event-icon">⛰️</span><span class="event-description">HIKE UP ARTHUR'S SEAT (~3 HOURS ROUND TRIP). <span class="details">ICONIC HILL, PANORAMIC VIEWS. ~35 MIN WALK OR BUS.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">13:00</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH IN HOLYROOD AREA. <span class="details">NEAR BASE OF ARTHUR'S SEAT.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">14:30</span><span class="event-icon">👑</span><span class="event-description">VISIT PALACE OF HOLYROODHOUSE. <span class="details">THE QUEEN'S OFFICIAL SCOTTISH RESIDENCE.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">16:30</span><span class="event-icon">🌳</span><span class="event-description">OPTIONAL: ROYAL BOTANIC GARDEN (WEATHER PERMITTING). <span class="details">~25 MIN BUS RIDE.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">19:00</span><span class="event-icon">🍽️</span><span class="event-description">DINNER AT HOWIES VICTORIA STREET. <span class="details">SCOTTISH RESTAURANT ON A FAMOUS STREET. ~20 MIN BUS.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">21:00</span><span class="event-icon">👻</span><span class="event-description">EDINBURGH GHOST TOUR (~2 HOURS). <span class="details">EXPLORE THE CITY'S DARKER HISTORY. STARTS NEAR DINNER.</span></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="plan-day-block stagger-fade">
-                                         <h6><i class="fa-regular fa-calendar-days"></i> FRIDAY, APRIL 4TH</h6>
-                                        <div class="day-events">
-                                            <div class="plan-event"><span class="event-time">AM</span><span class="event-icon">🍳</span><span class="event-description">BREAKFAST.</span></div>
-                                            <div class="plan-event"><span class="event-time">09:30</span><span class="event-icon">🚪</span><span class="event-description">CHECK OUT OF ST CHRISTOPHER'S.</span></div>
-                                            <div class="plan-event"><span class="event-time">10:00</span><span class="event-icon">🧳</span><span class="event-description">STORE LUGGAGE / CHECK-IN (LATER) TRAVELODGE. <span class="details">~15 MIN WALK.</span></span></div>
-                                             <div class="plan-event"><span class="event-time">11:00</span><span class="event-icon">🌳</span><span class="event-description">WALK THROUGH DEAN VILLAGE & WATER OF LEITH. <span class="details">PICTURESQUE HIDDEN GEM. ~20 MIN WALK FROM TRAVELODGE.</span></span></div>
-                                             <div class="plan-event"><span class="event-time">13:00</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH IN STOCKBRIDGE AREA. <span class="details">CHARMING NEIGHBORHOOD FEEL. ~15 MIN WALK FROM DEAN V.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">15:00</span><span class="event-icon">🖼️</span><span class="event-description">VISIT SCOTTISH NATIONAL GALLERY. <span class="details">~20 MIN WALK.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">17:00</span><span class="event-icon">🏨</span><span class="event-description">OFFICIAL CHECK-IN / SETTLE AT TRAVELODGE. <span class="details">~10 MIN WALK.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">19:00</span><span class="event-icon">🍽️🕯️</span><span class="event-description">DINNER AT THE WITCHERY BY THE CASTLE. <span class="details">ATMOSPHERIC, GOTHIC RESTAURANT. ~15 MIN WALK. BOOK AHEAD!</span></span></div>
-                                             <div class="plan-event"><span class="event-time">21:00</span><span class="event-icon">🍻</span><span class="event-description">PUB EVENING AT THE WORLD'S END. <span class="details">HISTORIC PUB ON ROYAL MILE. ~10 MIN WALK.</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- AMSTERDAM TAB -->
-                            <div id="amsterdam-view" class="tab-content">
-                                <h4 class="fade-in-up">Amsterdam: Canals & Creativity</h4>
-                                 <p class="fade-in-up" style="margin-bottom: 2em; text-align: center;">APRIL 5TH - APRIL 7TH, 2025</p>
-                                <h5 class="fade-in-up">✈️ FLIGHTS</h5>
-                                 <div class="fade-in-up info-list">
-                                    <p class="flight-info"><strong>MON, APR 7: AMS → BER</strong> | AIRLINE: <strong>KLM Royal Dutch Airlines 1773</strong> | 08:45 (AMS) → 10:05 (BER) | DUR: 1H 20M | CONF: LVLY3T</p>
-                                </div>
-                                <h5 class="fade-in-up">🌦️ WEATHER (F)</h5>
-                                <div class="fade-in-up stagger-fade info-list weather-list">
-                                    <p><strong>SAT, APR 5:</strong> HIGH: 55 | LOW: 39 | P SUNNY, WIND ☀️💨</p>
-                                    <p><strong>SUN, APR 6:</strong> HIGH: 54 | LOW: 41 | M SUNNY ☀️</p>
-                                </div>
-                                 <h5 class="fade-in-up">⭐ TOP ATTRACTIONS (RANKED)</h5>
-                                 <div class="fade-in-up recommendation-list">
-                                    <ol><li>CANAL CRUISE ⛵</li><li>COFFEESHOP (PRIX D'AMI/ABRAXAS) ☕</li><li>SMART SHOPS (TRUFFLES) ✨</li><li>KEUKENHOF GARDENS (BOOK AHEAD!) 🌷</li><li>A'DAM LOOKOUT/SWING 🏙️</li><li>VAN GOGH MUSEUM 🎨</li><li>ANNE FRANK HOUSE (BOOK WAY AHEAD!) 📖</li><li>80S ROLLER SKATING 🛼</li><li>FREE CONCERTS 🎶</li><li>5D FLIGHT VR 🎢</li><li>BIKE RIDE (E.G., WATERLAND) 🚲</li><li>VINTAGE SHOPPING (CKX, LUCILLE) 🛍️</li></ol>
-                                </div>
-                                <h5 class="fade-in-up">🗓️ DETAILED DAILY PLAN</h5>
-                                <div class="daily-plan-details fade-in-up">
-                                     <div class="plan-day-block stagger-fade">
                                          <h6><i class="fa-regular fa-calendar-days"></i> SATURDAY, APRIL 5TH</h6>
-                                        <div class="day-events">
-                                            <div class="plan-event flight-info"><span class="event-time">09:35</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT SCHIPHOL AIRPORT (AMS).</span></div>
+                                         <div class="day-events">
+                                             <div class="plan-event flight-info"><span class="event-time">09:35</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT SCHIPHOL AIRPORT (AMS).</span></div>
                                              <div class="plan-event"><span class="event-time">10:15</span><span class="event-icon">🚌</span><span class="event-description">TAKE CONNEXXION BUS 397 FROM SCHIPHOL PLAZA TO LEIDSEPLEIN (~35 MINS).</span></div>
                                             <div class="plan-event"><span class="event-time">10:50</span><span class="event-icon">🚶‍♀️</span><span class="event-description">WALK TO STAYOKAY AMSTERDAM VONDELPARK (~5 MINS).</span></div>
-                                             <div class="plan-event"><span class="event-time">11:00</span><span class="event-icon">🎒</span><span class="event-description">DROP OFF LUGGAGE AT HOSTEL (STORE IF ROOM NOT READY).</span></div>
+                                            <div class="plan-event"><span class="event-time">11:00</span><span class="event-icon">🎒</span><span class="event-description">DROP OFF LUGGAGE AT HOSTEL (STORE IF ROOM NOT READY).</span></div>
                                             <div class="plan-event"><span class="event-time">11:15</span><span class="event-icon">🌳☕</span><span class="event-description">EXPLORE VONDELPARK OR GRAB COFFEE NEARBY.</span></div>
                                             <div class="plan-event"><span class="event-time">12:30</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH AT A NEARBY CAFÉ (LEIDSEPLEIN AREA OPTIONS).</span></div>
                                              <div class="plan-event"><span class="event-time">14:30</span><span class="event-icon">⛵</span><span class="event-description">CANAL CRUISE (~1-1.5 HOURS). <span class="details">BOOK AHEAD OR FIND OPERATOR NEAR LEIDSEPLEIN.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">16:00</span><span class="event-icon">☕</span><span class="event-description">VISIT PRIX D'AMI COFFEESHOP (CHECK DIRECTIONS). <span class="details">TRAM/WALK REQUIRED. VERIFY GREEN/WHITE STICKER!</span></span></div>
+                                             <div class="plan-event"><span class="event-time">16:00</span><span class="event-icon">☕</span><span class="event-description">VISIT PRIX D'AMI COFFEESHOP (CHECK DIRECTIONS). <span class="details">TRAM/WALK REQUIRED. VERIFY GREEN/WHITE STICKER!</span></span></div>
                                             <div class="plan-event"><span class="event-time">18:30</span><span class="event-icon">🏨</span><span class="event-description">RETURN TO STAYOKAY, CHECK-IN OFFICIALLY, FRESHEN UP.</span></div>
-                                            <div class="plan-event"><span class="event-time">19:30</span><span class="event-icon">🍽️</span><span class="event-description">DINNER IN LEIDSEPLEIN AREA. <span class="details">ENTERTAINMENT DISTRICT, MANY CHOICES.</span></span></div>
-                                         </div>
-                                    </div>
-                                     <div class="plan-day-block stagger-fade">
+                                             <div class="plan-event"><span class="event-time">19:30</span><span class="event-icon">🍽️</span><span class="event-description">DINNER IN LEIDSEPLEIN AREA. <span class="details">ENTERTAINMENT DISTRICT, MANY CHOICES.</span></span></div>
+                                        </div>
+                                     </div>
+                                    <div class="plan-day-block stagger-fade">
                                         <h6><i class="fa-regular fa-calendar-days"></i> SUNDAY, APRIL 6TH</h6>
-                                        <div class="day-events">
-                                            <div class="plan-event"><span class="event-time">08:00</span><span class="event-icon">🍳</span><span class="event-description">BREAKFAST AT HOSTEL OR NEARBY.</span></div>
+                                         <div class="day-events">
+                                             <div class="plan-event"><span class="event-time">08:00</span><span class="event-icon">🍳</span><span class="event-description">BREAKFAST AT HOSTEL OR NEARBY.</span></div>
                                             <div class="plan-event"><span class="event-time">09:00</span><span class="event-icon">🚌🌷</span><span class="event-description">DEPART FOR KEUKENHOF GARDENS. <span class="details">BUS 397 TO SCHIPHOL, THEN KEUKENHOF EXPRESS 858 (~1.5HR TOTAL).</span></span></div>
                                             <div class="plan-event"><span class="event-time">10:30</span><span class="event-icon">🌷</span><span class="event-description">EXPLORE KEUKENHOF GARDENS (3-4 HOURS). <span class="details">WORLD FAMOUS! BUY TICKETS IN ADVANCE.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">14:30</span><span class="event-icon">🚌</span><span class="event-description">RETURN TO AMSTERDAM VIA REVERSE BUS ROUTE.</span></div>
-                                            <div class="plan-event"><span class="event-time">~15:30</span><span class="event-icon">🍽️</span><span class="event-description">LATE LUNCH / SNACK.</span></div>
-                                            <div class="plan-event"><span class="event-time">16:00</span><span class="event-icon">☕✨</span><span class="event-description">VISIT ABRAXAS COFFEESHOP (OR SMART SHOP?). <span class="details">ATMOSPHERIC, NEAR DAM SQ. TRAM NEEDED.</span></span></div>
-                                            <div class="plan-event"><span class="event-time">~17:00</span><span class="event-icon">🚲🛍️</span><span class="event-description">OPTION: RENT BIKE, CYCLE WATERLAND (SCENIC RIDE OUTSIDE CITY) OR VINTAGE SHOPPING (NEAR JORDAAN/9 STREETS)?</span></div>
+                                             <div class="plan-event"><span class="event-time">14:30</span><span class="event-icon">🚌</span><span class="event-description">RETURN TO AMSTERDAM VIA REVERSE BUS ROUTE.</span></div>
+                                             <div class="plan-event"><span class="event-time">~15:30</span><span class="event-icon">🍽️</span><span class="event-description">LATE LUNCH / SNACK.</span></div>
+                                             <div class="plan-event"><span class="event-time">16:00</span><span class="event-icon">☕✨</span><span class="event-description">VISIT ABRAXAS COFFEESHOP (OR SMART SHOP LIKE KOKOPELLI?). <span class="details">ATMOSPHERIC, NEAR DAM SQ. TRAM NEEDED.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">~17:00</span><span class="event-icon">🚲🛍️</span><span class="event-description">OPTION 1: RENT BIKE, CYCLE WATERLAND (SCENIC RIDE OUTSIDE CITY) OR VONDELPARK AGAIN? OPTION 2: VINTAGE SHOPPING NEAR JORDAAN/9 STREETS (CKX, LUCILLE)?</span></div>
                                             <div class="plan-event"><span class="event-time">18:00</span><span class="event-icon">🍽️</span><span class="event-description">DINNER NEAR DAM SQUARE OR HEAD TOWARDS JORDAAN.</span></div>
                                             <div class="plan-event"><span class="event-time">20:00</span><span class="event-icon">🚶‍♀️</span><span class="event-description">EVENING STROLL THROUGH THE CHARMING JORDAAN DISTRICT.</span></div>
                                         </div>
-                                    </div>
+                                     </div>
                                     <div class="plan-day-block stagger-fade">
                                          <h6><i class="fa-regular fa-calendar-days"></i> MONDAY, APRIL 7TH</h6>
-                                         <div class="day-events">
+                                        <div class="day-events">
                                              <div class="plan-event"><span class="event-time">07:00</span><span class="event-icon">🚪</span><span class="event-description">CHECK-OUT FROM STAYOKAY AMSTERDAM VONDELPARK.</span></div>
                                              <div class="plan-event"><span class="event-time">07:15</span><span class="event-icon">🚕</span><span class="event-description">TAXI OR PRE-BOOKED SHUTTLE TO SCHIPHOL AIRPORT (AMS). ALLOW TRAFFIC TIME.</span></div>
                                              <div class="plan-event flight-info"><span class="event-time">08:45</span><span class="event-icon">✈️</span><span class="event-description">DEPART AMSTERDAM (AMS) FOR BERLIN (BER) ON KLM 1773.</span></div>
                                          </div>
                                     </div>
-                                </div>
+                                 </div>
                             </div>
 
-                            <!-- BERLIN TAB -->
+                             <!-- BERLIN TAB -->
                              <div id="berlin-view" class="tab-content">
-                                <h4 class="fade-in-up">BERLIN: HISTORY & MODERNITY</h4>
-                                 <p class="fade-in-up" style="margin-bottom: 2em; text-align: center;">APRIL 7TH - APRIL 8TH, 2025</p>
+                                 <h4 class="fade-in-up">BERLIN: HISTORY & MODERNITY</h4>
+                                <p class="fade-in-up" style="margin-bottom: 2em; text-align: center;">APRIL 7TH - APRIL 8TH, 2025</p>
                                 <h5 class="fade-in-up">✈️ FLIGHTS (RETURN)</h5>
                                  <div class="fade-in-up info-list">
                                      <p class="flight-info"><strong>TUE, APR 8: LEG 1: BER → BCN</strong> | 13:50 → 16:30 | AIRLINE: <strong>VUELING AIRLINES 1883</strong> | DUR: 2H 40M | CONF: YHLWPP</p>
                                      <p style="padding-left: 1.2em; margin: 0.3em 0 !important; font-style: italic; background: none; border: none;">Layover: 2h 10m in Barcelona (BCN)</p>
                                      <p class="flight-info"><strong>TUE, APR 8: LEG 2: BCN → JFK</strong> | 18:40 → 21:40 | AIRLINE: <strong>LEVEL 9797</strong> (OP BY IBERIA) | DUR: 9H</p>
-                                 </div>
-                                 <h5 class="fade-in-up">🌦️ WEATHER (F)</h5>
+                                </div>
+                                <h5 class="fade-in-up">🌦️ WEATHER (F)</h5>
                                  <div class="fade-in-up stagger-fade info-list weather-list">
                                     <p><strong>MON, APR 7:</strong> HIGH: 51 | LOW: 39 | MOSTLY SUNNY ☀️</p>
-                                    <p><strong>TUE, APR 8:</strong> HIGH: ?? | LOW: ?? | SUNNY ☀️ (RELEVANT FOR MORNING)</p>
+                                     <p><strong>TUE, APR 8:</strong> HIGH: ?? | LOW: ?? | SUNNY ☀️ (RELEVANT FOR MORNING) </p>
                                  </div>
                                 <h5 class="fade-in-up">⭐ TOP ATTRACTIONS (RANKED)</h5>
-                                 <div class="fade-in-up recommendation-list">
-                                    <ol><li>MEMORIAL TO MURDERED JEWS 🕯️</li><li>BERLIN WALL MEMORIAL 🧱</li><li>TEUFELSBERG BUNKER 📡</li><li>TEMPELHOFER FELD BIKING 🚲</li></ol>
-                                </div>
-                                 <h5 class="fade-in-up">🗓️ DETAILED DAILY PLAN</h5>
-                                <div class="daily-plan-details fade-in-up">
-                                    <div class="plan-day-block stagger-fade">
-                                        <h6><i class="fa-regular fa-calendar-days"></i> MONDAY, APRIL 7TH</h6>
+                                <div class="fade-in-up recommendation-list">
+                                     <ol><li>MEMORIAL TO MURDERED JEWS 🕯️</li><li>BERLIN WALL MEMORIAL 🧱</li><li>TEUFELSBERG BUNKER 📡</li><li>TEMPELHOFER FELD BIKING 🚲</li></ol>
+                                 </div>
+                                <h5 class="fade-in-up">🗓️ DETAILED DAILY PLAN</h5>
+                                 <div class="daily-plan-details fade-in-up">
+                                     <div class="plan-day-block stagger-fade">
+                                         <h6><i class="fa-regular fa-calendar-days"></i> MONDAY, APRIL 7TH</h6>
                                          <div class="day-events">
-                                             <div class="plan-event flight-info"><span class="event-time">10:05</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT BERLIN BRANDENBURG AIRPORT (BER).</span></div>
+                                            <div class="plan-event flight-info"><span class="event-time">10:05</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT BERLIN BRANDENBURG AIRPORT (BER).</span></div>
                                              <div class="plan-event"><span class="event-time">10:30</span><span class="event-icon">🚌🚆</span><span class="event-description">TAKE AIRPORT EXPRESS (FEX) TRAIN OR BUS/U-BAHN COMBO TO NEAR HOSTEL (~40-50 MIN).</span></div>
                                              <div class="plan-event"><span class="event-time">~11:15</span><span class="event-icon">🚶‍♀️</span><span class="event-description">WALK OR SHORT TRAM TO CIRCUS HOSTEL.</span></div>
                                              <div class="plan-event"><span class="event-time">11:30</span><span class="event-icon">🏨🎒</span><span class="event-description">CHECK-IN OR DROP OFF LUGGAGE AT CIRCUS HOSTEL.</span></div>
                                              <div class="plan-event"><span class="event-time">12:30</span><span class="event-icon">🍽️</span><span class="event-description">LUNCH NEAR HOSTEL (MITTE/ROSENTHALER PLATZ HAS MANY OPTIONS).</span></div>
-                                             <div class="plan-event"><span class="event-time">14:00</span><span class="event-icon">🕯️</span><span class="event-description">VISIT MEMORIAL TO THE MURDERED JEWS OF EUROPE. <span class="details">NEAR BRANDENBURG GATE. U-BAHN NEEDED.</span></span></div>
+                                            <div class="plan-event"><span class="event-time">14:00</span><span class="event-icon">🕯️</span><span class="event-description">VISIT MEMORIAL TO THE MURDERED JEWS OF EUROPE. <span class="details">NEAR BRANDENBURG GATE. U-BAHN NEEDED.</span></span></div>
                                              <div class="plan-event"><span class="event-time">16:00</span><span class="event-icon">🧱</span><span class="event-description">EXPLORE BERLIN WALL MEMORIAL (BERNAUER STR.). <span class="details">ESSENTIAL HISTORY. TRAM/U-BAHN REQUIRED.</span></span></div>
-                                             <div class="plan-event"><span class="event-time">18:30</span><span class="event-icon">🏨</span><span class="event-description">RETURN TO HOSTEL, FRESHEN UP.</span></div>
-                                             <div class="plan-event"><span class="event-time">19:30</span><span class="event-icon">🍽️🍻</span><span class="event-description">DINNER IN MITTE & FIND A BEER GARDEN! <span class="details">ENJOY LOCAL VIBE (E.G., PRATER GARTEN, HOFBRÄU, CLÄRCHENS).</span></span></div>
+                                            <div class="plan-event"><span class="event-time">18:30</span><span class="event-icon">🏨</span><span class="event-description">RETURN TO HOSTEL, FRESHEN UP.</span></div>
+                                            <div class="plan-event"><span class="event-time">19:30</span><span class="event-icon">🍽️🍻</span><span class="event-description">DINNER IN MITTE & FIND A BEER GARDEN! <span class="details">ENJOY LOCAL VIBE (E.G., PRATER GARTEN, HOFBRÄU, CLÄRCHENS).</span></span></div>
                                          </div>
-                                     </div>
+                                    </div>
                                      <!-- CORRECTED DAY 8 PLAN WITH BRUNCH & AIRPORT BUFFER -->
                                      <div class="plan-day-block stagger-fade">
                                          <h6><i class="fa-regular fa-calendar-days"></i> TUESDAY, APRIL 8TH</h6>
-                                        <div class="day-events">
+                                         <div class="day-events">
                                              <div class="plan-event"><span class="event-time">~08:00</span><span class="event-icon">🚪</span><span class="event-description">CHECK-OUT OF CIRCUS HOSTEL, STORE LUGGAGE SECURELY.</span></div>
-                                             <div class="plan-event"><span class="event-time">~08:30</span><span class="event-icon">🍳☕</span><span class="event-description">FIND A NICE BRUNCH SPOT IN MITTE OR PRENZLAUER BERG. <span class="details">Enjoy a relaxed last meal in Berlin!</span></span></div>
+                                            <div class="plan-event"><span class="event-time">~08:30</span><span class="event-icon">🍳☕</span><span class="event-description">FIND A NICE BRUNCH SPOT IN MITTE OR PRENZLAUER BERG. <span class="details">Enjoy a relaxed last meal!</span></span></div>
                                             <div class="plan-event"><span class="event-time">~11:15</span><span class="event-icon">🎒</span><span class="event-description">RETURN TO HOSTEL, COLLECT LUGGAGE.</span></div>
-                                             <div class="plan-event"><span class="event-time">~11:20</span><span class="event-icon">🚌🚆</span><span class="event-description">LEAVE FOR BER AIRPORT VIA PUBLIC TRANSPORT (FEX/S-BAHN). <span class="details">Crucial Buffer: Allow 60 mins travel + check-in time. Arrive BER by 11:50 LATEST.</span></span></div>
+                                             <div class="plan-event"><span class="event-time">~11:20</span><span class="event-icon">🚌🚆</span><span class="event-description">LEAVE FOR BER AIRPORT VIA PUBLIC TRANSPORT (FEX/S-BAHN). <span class="details">Allow 60+ mins travel. Arrive at BER by ~11:50 LATEST.</span></span></div>
                                              <div class="plan-event flight-info"><span class="event-time">13:50</span><span class="event-icon">✈️</span><span class="event-description">DEPART BERLIN (BER) FOR BARCELONA (BCN) ON VUELING 1883.</span></div>
-                                            <div class="plan-event flight-info"><span class="event-time">16:30</span><span class="event-icon">⏳</span><span class="event-description">ARRIVE BARCELONA (BCN). LAYOVER (2H 10M). PROCEED TO NEXT GATE.</span></div>
-                                             <div class="plan-event flight-info"><span class="event-time">18:40</span><span class="event-icon">✈️</span><span class="event-description">DEPART BARCELONA (BCN) FOR NEW YORK (JFK) ON LEVEL/IB 9797.</span></div>
+                                             <div class="plan-event flight-info"><span class="event-time">16:30</span><span class="event-icon">⏳</span><span class="event-description">ARRIVE BARCELONA (BCN). LAYOVER (2H 10M). PROCEED TO NEXT GATE.</span></div>
+                                            <div class="plan-event flight-info"><span class="event-time">18:40</span><span class="event-icon">✈️</span><span class="event-description">DEPART BARCELONA (BCN) FOR NEW YORK (JFK) ON LEVEL/IB 9797.</span></div>
                                              <div class="plan-event flight-info"><span class="event-time">21:40</span><span class="event-icon">🛬</span><span class="event-description">ARRIVE AT JFK, NEW YORK. WELCOME HOME! 🥳</span></div>
-                                         </div>
-                                     </div>
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                             </div>
 
-                         </div> <!-- /tab-content-area -->
+                        </div> <!-- /tab-content-area -->
                      </div> <!-- /content-wrapper -->
-                 </section>
+                </section>
 
                  <!-- Accommodation Summary Section -->
                  <section id="accommodations-anchor">
                      <div class="content-wrapper">
                          <h3 class="fade-in-up">🏨 ACCOMMODATIONS OVERVIEW</h3>
                           <div class="fade-in-up info-list">
-                             <div class="plan-day-block">
+                             <div class="plan-day-block"> <!-- Reuse block styling -->
                                  <h5 style="color:#1a1a1a; border:none; padding-top:0; margin-top:0;">EDINBURGH 🏴󠁧󠁢󠁳󠁣󠁴󠁿</h5>
                                  <p><strong>APR 2-4: ST CHRISTOPHER'S EDINBURGH ORIGINAL</strong><br><small>📍 9-13 Market Street, EH1 1DE | Ref: STC-EDI-33683198</small></p>
                                 <p><strong>APR 4-5: TRAVELODGE EDINBURGH CENTRAL WATERLOO PLACE</strong><br><small>📍 17 Waterloo Pl, Edinburgh EH1 3BG, UK | Ref: 82377249</small></p>
@@ -654,8 +573,8 @@
                              <div class="plan-day-block">
                                  <h5 style="color:#1a1a1a; border:none; padding-top:0; margin-top:0;">AMSTERDAM 🇳🇱</h5>
                                  <p><strong>APR 5-7: STAYOKAY AMSTERDAM VONDELPARK</strong><br><small>📍 Zandpad 5, 1054 GA Amsterdam, Netherlands</small></p>
-                             </div>
-                              <div class="plan-day-block">
+                            </div>
+                             <div class="plan-day-block">
                                 <h5 style="color:#1a1a1a; border:none; padding-top:0; margin-top:0;">BERLIN 🇩🇪</h5>
                                 <p><strong>APR 7-8: CIRCUS HOSTEL</strong><br><small>📍 Weinbergsweg 1A, 10119 Berlin, Germany</small></p>
                              </div>
@@ -667,7 +586,7 @@
 
         </div> <!-- /dashboard-container -->
 
-    </main>
+     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -691,7 +610,7 @@
                 targetContent.style.display = 'block';
                 targetContent.classList.add('active');
 
-                requestAnimationFrame(() => { // Use rAF to ensure styles apply before JS check
+                requestAnimationFrame(() => {
                     const typewriterEl = targetContent.querySelector('.typewriter:not(.typed)');
                     if (typewriterEl) startTypewriter(typewriterEl);
                  });
@@ -704,52 +623,71 @@
                  });
              });
 
-             const initialActiveTabId = document.querySelector('.tab-button.active')?.getAttribute('data-target');
-             if (initialActiveTabId) switchTab(initialActiveTabId);
-             else if (tabContents.length > 0) {
-                const firstTabId = tabContents[0].id;
-                 if (tabButtons[0]) tabButtons[0].classList.add('active');
+            const initialActiveTabId = document.querySelector('.tab-button.active')?.getAttribute('data-target');
+            if (initialActiveTabId) switchTab(initialActiveTabId);
+            else if (tabContents.length > 0) {
+                 const firstTabId = tabContents[0].id;
+                if (tabButtons[0]) tabButtons[0].classList.add('active');
                  switchTab(firstTabId);
-             }
+            }
 
-             // --- Intersection Observer for SECTION visibility ---
+             // --- Intersection Observer ---
             const sectionObserver = new IntersectionObserver((entries) => {
                  entries.forEach(entry => {
                      if (entry.isIntersecting) {
                          entry.target.classList.add('visible');
-                         const sectionTypewriter = entry.target.querySelector(':scope > .content-wrapper > h2.typewriter:not(.typed), :scope > .content-wrapper > h3.typewriter:not(.typed)');
+                        const sectionTypewriter = entry.target.querySelector(':scope > .content-wrapper > h2.typewriter:not(.typed), :scope > .content-wrapper > h3.typewriter:not(.typed)');
                          if (sectionTypewriter) startTypewriter(sectionTypewriter);
-
                          const initialActiveTabTypewriter = entry.target.querySelector('.tab-content.active .typewriter:not(.typed)');
-                          if (initialActiveTabTypewriter) startTypewriter(initialActiveTabTypewriter);
-                     }
+                        if (initialActiveTabTypewriter) startTypewriter(initialActiveTabTypewriter);
+                    }
                  });
             }, { threshold: 0.05 });
 
-             document.querySelectorAll('section').forEach(el => sectionObserver.observe(el));
+            document.querySelectorAll('section').forEach(el => sectionObserver.observe(el));
 
-             // --- Typewriter Effect ---
-            function startTypewriter(element) {
+             // --- Typewriter ---
+             function startTypewriter(element) {
                  if (!element || element.classList.contains('typed') || element.classList.contains('typing')) return;
                 element.classList.add('typing');
                 const originalHTML = element.innerHTML;
-                 element.innerHTML = ''; element.style.opacity = '1';
+                element.innerHTML = ''; element.style.opacity = '1';
                 const tempDiv = document.createElement('div'); tempDiv.innerHTML = originalHTML;
                 const baseText = tempDiv.textContent || tempDiv.innerText || "";
                 let charIndex = 0;
                 const cursor = document.createElement('span'); cursor.className = 'typewriter-cursor'; element.appendChild(cursor);
-                function type() {
+                 function type() {
                     if (charIndex < baseText.length) {
                         element.insertBefore(document.createTextNode(baseText[charIndex]), cursor);
-                        charIndex++; setTimeout(type, 40);
-                     } else {
+                         charIndex++; setTimeout(type, 40);
+                    } else {
                         element.innerHTML = originalHTML; element.classList.remove('typing'); element.classList.add('typed');
                         const finalCursor = element.querySelector('.typewriter-cursor'); if (finalCursor) finalCursor.style.display = 'none';
                      }
                  }
                  setTimeout(type, 100);
              }
-         });
+
+            // --- Mobile Nav Link Hide ---
+            // Function to check window width and toggle nav link visibility
+             function checkWidth() {
+                 const summaryNavLink = document.querySelector('.summary-nav-link'); // Target the specific li
+                 if (!summaryNavLink) return; // Exit if link not found
+
+                 if (window.innerWidth <= 900) {
+                     summaryNavLink.style.display = 'none'; // Hide link
+                 } else {
+                    summaryNavLink.style.display = 'list-item'; // Show link (or '' for default)
+                 }
+             }
+
+             // Initial check
+            checkWidth();
+
+             // Check on resize
+             window.addEventListener('resize', checkWidth);
+
+        });
     </script>
 
 </body>
